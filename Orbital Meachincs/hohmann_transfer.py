@@ -8,9 +8,14 @@ import astropy as ast
 import numpy as np
 
 def period_transfer(a_hoh, mu):
+    #Returns the period of hohmann transfer using the apoapsis of the initial transfer and the 
+    #Standard gravitational constant µ
     return 2*np.pi*np.sqrt(a_hoh**3/mu)
 
 def phase_angle(t_hoh, ang_vel_target):
+    #This angle is the "transfer window" for your initial Δv burn. When the two bodies are at this angle
+    #A hohmann transfer is possible. ang_vel_target is the angular velocity of the target around the central
+    #body. IE: Mars around the Sun; Kennedy Space Center around Earths CM; etcetera.
     return 180-0.5*t_hoh*ang_vel_target
 
 
