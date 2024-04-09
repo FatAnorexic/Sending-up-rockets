@@ -25,8 +25,9 @@ def ang_vel_tartget(mu, a_target):
 
 def main():
     target=input('Enter the name of the target: ')
-    m=float(input(f'Enter the mass of {target}: '))
-    
+    central_body=input('Enter the name of the central body: ')
+    m=float(input(f'Enter the mass of {central_body}: '))
+
     #Standard Gravitational Constant
     mu=G*m
 
