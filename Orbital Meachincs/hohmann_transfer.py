@@ -8,8 +8,8 @@ import astropy as ast
 import numpy as np
 
 def period_transfer(a_hoh, mu):
-    #Returns the period of hohmann transfer using the apoapsis of the initial transfer and the 
-    #Standard gravitational constant µ
+    #Returns the period of hohmann transfer using the Semi major axis(a_hoh) of the initial transfer 
+    #and the Standard gravitational constant µ.
     return 2*np.pi*np.sqrt(a_hoh**3/mu)
 
 def phase_angle(t_hoh, ang_vel_target):
