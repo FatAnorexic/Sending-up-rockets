@@ -18,10 +18,16 @@ def phase_angle(t_hoh, ang_vel_target):
     #body. IE: Mars around the Sun; Kennedy Space Center around Earths CM; etcetera.
     return 180-0.5*t_hoh*ang_vel_target
 
+def ang_vel_tartget(mu, a_target):
+    #This returns(in radians/s) the rate at which the target body is constantly revolving about the 
+    #axis of the central body.
+    return 360/(2*np.pi)*np.sqrt(mu/a_target**3)
 
 def main():
     target=input('Enter the name of the target: ')
     m=float(input(f'Enter the mass of {target}: '))
+    
+    #Standard Gravitational Constant
     mu=G*m
 
     
