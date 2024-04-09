@@ -1,0 +1,7 @@
+# My Daughter is now into Rockets
+Recently I showed my daughter a video of the space shuttle launching. Thinking this would be a cool thing to show
+her as I finished up a few things. This has now turned into full blown enthatuation with the topic, and the constant
+requests to see rockets(especially the shuttle) launch and go into orbit has been none stop. Indeed, The Shuttle was a cool looking space glider and the engineering and science behind it, even more so. While she is currently too young to comprhend most of systems and ideas at play, I figure now would be a good time to start documenting the engineering and mechanics involved in space aviation. At best she'll keep with this facsination and go on to do wonderful things with it. At worst, it'll be nice padding for my resume`, showing I have at least a college/amatuer level understanding of astro-dynamics and rocket science. 
+
+## Where To Begin?
+To start with, I've often found the easiest and most straight forward way to go about this is start from the middle or end(Depending on what exactly you're trying to do) and work our way backwards. This is in part due to the nature of how these mechanics work. IE: To send a rocket to GEO(Geostationary Orbit), we first need to know how much ${/delta}v$ we'll need to get there.
