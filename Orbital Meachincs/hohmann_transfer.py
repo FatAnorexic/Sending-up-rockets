@@ -18,10 +18,10 @@ def phase_angle(t_hoh, t_target):
     #body. IE: Mars around the Sun; Kennedy Space Center around Earths CM; etcetera.
     return (np.pi-np.pi*t_hoh/t_target)*180/np.pi
 
-def ang_vel_tartget(mu, a_target):
+def ang_vel_tartget(t_target):
     #This returns(in radians/s) the rate at which the target body is constantly revolving about the 
     #axis of the central body.
-    return 2*np.pi*np.sqrt(a_target**3/mu)
+    return (2*np.pi)/t_target
 
 def main():
     target=input('Enter the name of the target: ')
