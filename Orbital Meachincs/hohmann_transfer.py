@@ -12,16 +12,16 @@ def period_transfer(a_hoh, mu):
     #and the Standard gravitational constant µ.
     return 2*np.pi*np.sqrt(a_hoh**3/mu)
 
-def phase_angle(t_hoh, ang_vel_target):
+def phase_angle(t_hoh, t_target):
     #This angle is the "transfer window" for your initial Δv burn. When the two bodies are at this angle
     #A hohmann transfer is possible. ang_vel_target is the angular velocity of the target around the central
     #body. IE: Mars around the Sun; Kennedy Space Center around Earths CM; etcetera.
-    return 180-0.5*t_hoh*ang_vel_target
+    return (np.pi-np.pi*t_hoh/t_target)*180/np.pi
 
 def ang_vel_tartget(mu, a_target):
     #This returns(in radians/s) the rate at which the target body is constantly revolving about the 
     #axis of the central body.
-    return 360/(2*np.pi)*np.sqrt(mu/a_target**3)
+    return 2*np.pi*np.sqrt(a_target**3/mu)
 
 def main():
     target=input('Enter the name of the target: ')
