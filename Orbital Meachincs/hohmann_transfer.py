@@ -7,6 +7,10 @@ from scipy.constants import gravitational_constant as G
 import astropy as ast
 import numpy as np
 
+target=input('Enter the name of the target: ')
+depart=input("\nEnter the name of the body you're departing from: ")
+central_body=input('\nEnter the name of the central body: ')
+
 def sma_hohmann(a_target, a_departure):
     #Takes the SMA of both the departure body and the target body, relative to the central mass in the 
     #system and returns the sma of the transfer orbit| or the sma of the hohmann transfer
@@ -28,10 +32,7 @@ def ang_vel(t):
 
 
 def main():
-    target=input('Enter the name of the target: ')
-    depart=input("\nEnter the name of the body you're departing from: ")
-    central_body=input('\nEnter the name of the central body: ')
-
+    
     #Get the mass of the central body of the system we are calculating for
     m=float(input(f'\nEnter the mass of {central_body}: '))
 
@@ -51,6 +52,10 @@ def main():
 
 def test(a_t, a_d, mu):
     print(f'\nStandard Gravitational Constant: {mu:.3e}')
+    t_target=period(a_t, mu)
+    t_depart=period(a_d, mu)
+    t_hoh=period(sma_hohmann(a_t,a_d))
+    print(f'')
     
     return 
 
