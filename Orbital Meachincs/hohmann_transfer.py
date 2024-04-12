@@ -31,6 +31,14 @@ def ang_vel(t):
     #returns the angular velocity of an object based on the period of that object. 
     return (2*np.pi)/t
 
+def velocity_circular(mu, r):
+    #Returns the velocity of a circular orbit. This will only work for orbits whose periods are circular
+    #or in the case of elliptical periods whose eccentricity is close enough to zero to be statistically 
+    #insignifigant. 
+    return np.sqrt(mu/r)
+
+def vis_viva(mu, r, a):
+    return np.sqrt(mu*(2/r-1/a))
 
 def main():
     
@@ -48,9 +56,9 @@ def main():
 
     #Standard Gravitational Constant
     mu=G*m
+    
     testing=test(a_target, a_departing, mu)
     csv_write(testing)
-    
 
 def test(a_t, a_d, mu):
     print(f'\nStandard Gravitational Constant: {mu:.3e} m**3/s**2\n')
@@ -64,7 +72,7 @@ def test(a_t, a_d, mu):
 
 def csv_write(param):
     file=open("test.txt", 'w')
-    file.write(f'Phase Angle: {param:.2f}')
+    file.write(f'Phase Angle: {param:.0f}')
     file.close
         
 
