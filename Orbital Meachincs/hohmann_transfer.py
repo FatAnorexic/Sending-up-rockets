@@ -37,6 +37,8 @@ def velocity_circular(mu, r):
     #insignifigant. 
     return np.sqrt(mu/r)
 
+def vis_viva(mu, r, a):
+    return np.sqrt(mu*(2/r-1/a))
 
 def main():
     
@@ -54,9 +56,9 @@ def main():
 
     #Standard Gravitational Constant
     mu=G*m
+    
     testing=test(a_target, a_departing, mu)
     csv_write(testing)
-    
 
 def test(a_t, a_d, mu):
     print(f'\nStandard Gravitational Constant: {mu:.3e} m**3/s**2\n')
