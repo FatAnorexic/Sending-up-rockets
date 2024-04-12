@@ -40,6 +40,14 @@ def velocity_circular(mu, r):
 def vis_viva(mu, r, a):
     return np.sqrt(mu*(2/r-1/a))
 
+def delta_v(mu, a_d, a_t): 
+    #Get the 
+    v_transfer_peri=vis_viva(mu,a_d,sma_hohmann(a_t, a_d))
+    v_transfer_apo=vis_viva(mu, a_t, sma_hohmann(a_t, a_d))
+    v_i=velocity_circular(mu,a_t)
+    v_f=velocity_circular(mu,a_d)
+    return np.abs(v_f-v_transfer_apo)+np.abs(v_i-v_transfer_peri)
+    
 def main():
     
     #Get the mass of the central body of the system we are calculating for
@@ -57,8 +65,10 @@ def main():
     #Standard Gravitational Constant
     mu=G*m
     
-    testing=test(a_target, a_departing, mu)
-    csv_write(testing)
+    #testing=test(a_target, a_departing, mu)
+    #csv_write(testing)
+    
+    print(delta_v(mu, a_departing, a_target))
 
 def test(a_t, a_d, mu):
     print(f'\nStandard Gravitational Constant: {mu:.3e} m**3/s**2\n')
