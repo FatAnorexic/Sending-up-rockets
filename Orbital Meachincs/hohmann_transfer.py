@@ -7,10 +7,14 @@ from scipy.constants import gravitational_constant as G
 import astropy as ast
 import numpy as np
 
-def period_transfer(a_hoh, mu):
-    #Returns the period of hohmann transfer using the Semi major axis(a_hoh) of the initial transfer 
-    #and the Standard gravitational constant µ.
-    return 2*np.pi*np.sqrt(a_hoh**3/mu)
+def sma_hohmann(a_target, a_departure):
+    #Takes the SMA of both the departure body and the target body, relative to the central mass in the 
+    #system and returns the sma of the transfer orbit| or the sma of the hohmann transfer
+    return (a_target+a_departure)/2
+
+def period(a, mu):
+    #returns the period of a given quantity to the central mass of the system. 
+    return 2*np.pi*np.sqrt(a**3/mu)
 
 def phase_angle(t_hoh, t_target):
     #This angle is the "transfer window" for your initial Δv burn. When the two bodies are at this angle
@@ -27,12 +31,15 @@ def main():
     target=input('Enter the name of the target: ')
     depart=input("Enter the name of the body you're departing from: ")
     central_body=input('Enter the name of the central body: ')
+
+    #Get the mass of the central body of the system we are calculating for
     m=float(input(f'Enter the mass of {central_body}: '))
 
     #Get the radius of the target body from the central body in the system| for a perfectly circular orbit we only need the 
     #radius r(assuming the center of mass of the major body does not shift) However for any elliptical orbit we need the 
     #semi-major axis
     a_target=(input(f'Enter the semi-major axis in meters of {target} from {central_body}: '))
+    
     #Get the semi-major axis of the departing body in comparison to the central body of the system. IE Earth to Mars|
     #return the SMA of Earth in comparison to the sun. 
     a_departing=(input(f'Enter the SMA of {depart} in relation to {central_body}: '))
