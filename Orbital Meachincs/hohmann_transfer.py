@@ -26,27 +26,33 @@ def ang_vel(t):
     #returns the angular velocity of an object based on the period of that object. 
     return (2*np.pi)/t
 
+
 def main():
     target=input('Enter the name of the target: ')
-    depart=input("Enter the name of the body you're departing from: ")
-    central_body=input('Enter the name of the central body: ')
+    depart=input("\nEnter the name of the body you're departing from: ")
+    central_body=input('\nEnter the name of the central body: ')
 
     #Get the mass of the central body of the system we are calculating for
-    m=float(input(f'Enter the mass of {central_body}: '))
+    m=float(input(f'\nEnter the mass of {central_body}: '))
 
     #Get the radius of the target body from the central body in the system| for a perfectly circular orbit we only need the 
     #radius r(assuming the center of mass of the major body does not shift) However for any elliptical orbit we need the 
     #semi-major axis
-    a_target=(input(f'Enter the semi-major axis in meters of {target} from {central_body}: '))
+    a_target=(input(f'\nEnter the semi-major axis in meters of {target} from {central_body}: '))
     
     #Get the semi-major axis of the departing body in comparison to the central body of the system. IE Earth to Mars|
     #return the SMA of Earth in comparison to the sun. 
-    a_departing=(input(f'Enter the SMA of {depart} in relation to {central_body}: '))
+    a_departing=(input(f'\nEnter the SMA of {depart} in relation to {central_body}: '))
 
     #Standard Gravitational Constant
     mu=G*m
 
+    print(test(a_target, a_departing, mu))
+
+def test(a_t, a_d, mu):
+    print(f'\nStandard Gravitational Constant: {mu:.3e}')
     
+    return 
 
 if __name__=="__main__":
     main()
