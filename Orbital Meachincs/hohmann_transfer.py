@@ -32,6 +32,9 @@ def ang_vel(t):
     return (2*np.pi)/t
 
 def velocity_circular(mu, r):
+    #Returns the velocity of a circular orbit. This will only work for orbits whose periods are circular
+    #or in the case of elliptical periods whose eccentricity is close enough to zero to be statistically 
+    #insignifigant. 
     return np.sqrt(mu/r)
 
 
