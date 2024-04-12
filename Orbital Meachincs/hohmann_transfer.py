@@ -31,6 +31,9 @@ def ang_vel(t):
     #returns the angular velocity of an object based on the period of that object. 
     return (2*np.pi)/t
 
+def velocity_circular(mu, r):
+    return np.sqrt(mu/r)
+
 
 def main():
     
@@ -64,7 +67,7 @@ def test(a_t, a_d, mu):
 
 def csv_write(param):
     file=open("test.txt", 'w')
-    file.write(f'Phase Angle: {param:.2f}')
+    file.write(f'Phase Angle: {param:.0f}')
     file.close
         
 
